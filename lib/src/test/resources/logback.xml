@@ -1,0 +1,23 @@
+<configuration>
+
+    <!-- Log with JSON -->
+    <appender name="jsonConsoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
+    </appender>
+
+    <!-- Check MDC of log for key 'id' and value '1'. If exists, log anything, else level defined by logger. -->
+    <turboFilter class="ch.qos.logback.classic.turbo.MDCFilter">
+        <MDCKey>id</MDCKey>
+        <Value>1</Value>
+        <OnMatch>ACCEPT</OnMatch>
+        <OnMisMatch>NEUTRAL</OnMisMatch>
+    </turboFilter>
+
+    <logger name="zimle.playground" level="info" additivity="false">
+        <appender-ref ref="jsonConsoleAppender" />
+    </logger>
+    <root level="error">
+        <appender-ref ref="jsonConsoleAppender" />
+    </root>
+
+</configuration>
