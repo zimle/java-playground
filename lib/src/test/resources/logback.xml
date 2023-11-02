@@ -13,7 +13,7 @@
         <OnMisMatch>NEUTRAL</OnMisMatch>
     </turboFilter>
 
-    <logger name="zimle.playground" level="info" additivity="false">
+    <logger name="zimle.playground" level="debug" additivity="false">
         <appender-ref ref="jsonConsoleAppender" />
     </logger>
     <root level="error">
